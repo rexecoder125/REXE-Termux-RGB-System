@@ -10,51 +10,47 @@ reset='\e[0m'
 clear
 
 # Device Info
-DATE=$(date "+%d-%m-%Y")
-TIME=$(date "+%I:%M %p")
+DATE=$(date +"%d-%m-%Y")
+TIME=$(date +"%I:%M %p")
 MODEL=$(getprop ro.product.model)
 ANDROID=$(getprop ro.build.version.release)
 RAM=$(free -h | awk '/Mem:/ {print $3 "/" $2}')
 STORAGE=$(df -h /data | awk 'NR==2 {print $3 "/" $2}')
 
-# OWL + PANEL TITLE
+# OWL LOGO + PANEL TITLE
 echo -e "${cyan}"
-echo -e "              ███████████████████████"
-echo -e "        █████████████████████████████████"
-echo -e "     ███████████████████████████████████████"
-echo -e "   ███████████▀▀▀▀███▀██████▀▀▀▀███▀███████████"
-echo -e "  ███████▀              ███              ▀███████"
-echo -e " ██████                 ███                 ██████"
-echo -e "██████      ██████      ███      ██████      ██████"
-echo -e "█████      ███████      ███      ███████      █████"
-echo -e "█████      ███████      ███      ███████      █████"
-echo -e "██████      ██████      ███      ██████      ██████"
-echo -e " ██████                 ███                 ██████"
-echo -e "  ███████▄             █████             ▄███████"
-echo -e "   ██████████▄      ███████████      ▄██████████"
-echo -e "     █████████████████████████████████████████"
-echo -e "        █████████████████████████████████"
-echo -e "              ███████████████████████"
-echo ""
-echo -e "          ${green}CYBER MATRIX RGB PANEL${reset}"
-echo ""
+echo "              ███████████████████████"
+echo "        █████████████████████████████████"
+echo "     ███████████████████████████████████████"
+echo "   ███████████▀▀▀▀███▀██████▀▀▀▀███▀███████████"
+echo "  ███████▀              ███              ▀███████"
+echo " ██████                 ███                 ██████"
+echo "██████      ██████      ███      ██████      ██████"
+echo "█████      ███████      ███      ███████      █████"
+echo "█████      ███████      ███      ███████      █████"
+echo "██████      ██████      ███      ██████      ██████"
+echo " ██████                 ███                 ██████"
+echo "  ███████▄             █████             ▄███████"
+echo "   ██████████▄      ███████████      ▄██████████"
+echo "     █████████████████████████████████████████"
+echo "        █████████████████████████████████"
+echo "              ███████████████████████"
+echo -e "${reset}"
 
-# Device Box
-echo -e "${green}────────────────────────────────────────────────────────${reset}"
-echo -e "${yellow}  Developer   : Rexe"
-echo -e "  Date        : $DATE"
-echo -e "  Time        : $TIME"
-echo -e "  Device      : $MODEL"
-echo -e "  Android     : $ANDROID"
-echo -e "  RAM         : $RAM"
-echo -e "  Storage     : $STORAGE${reset}"
-echo -e "${green}────────────────────────────────────────────────────────${reset}"
-echo ""
+echo -e "${green}-------------------------------------------------------------${reset}"
+echo -e "${yellow}   Developer : Rexe${reset}"
+echo -e "${yellow}   Date      : ${DATE}${reset}"
+echo -e "${yellow}   Time      : ${TIME}${reset}"
+echo -e "${yellow}   Device    : ${MODEL}${reset}"
+echo -e "${yellow}   Android   : ${ANDROID}${reset}"
+echo -e "${yellow}   RAM       : ${RAM}${reset}"
+echo -e "${yellow}   Storage   : ${STORAGE}${reset}"
+echo -e "${green}-------------------------------------------------------------${reset}"
 
-# RGB Waves
-for i in {1..30}; do
+# RGB Matrix Waves
+for i in {1..40}; do
     for color in 31 32 33 34 35 36; do
-        echo -ne "\e[${color}m Cyber Matrix Waves \e[0m"
+        echo -ne "\e[${color}mCyber Matrix Waves\e[0m   "
     done
     echo ""
 done
