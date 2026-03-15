@@ -1,5 +1,5 @@
 #!/bin/bash
-# Cyber Matrix Banner Installer
+# Cyber Matrix RGB Installer
 # Developer: Rexe
 
 clear
@@ -17,11 +17,11 @@ echo -e "\e[1;92m[✔] Installing required tools...\e[0m"
 pkg install git -y >/dev/null 2>&1
 
 echo -e "\e[1;92m[✔] Cloning repository...\e[0m"
-git clone https://github.com/YOURUSERNAME/A >/dev/null 2>&1
+git clone https://github.com/rexecoder125/REXE-Termux-RGB-System.git >/dev/null 2>&1
 
 echo -e "\e[1;92m[✔] Setting up banner...\e[0m"
-chmod +x ~/A/banner.sh
-echo "bash ~/A/banner.sh" >> ~/.bashrc
+chmod +x ~/REXE-Termux-RGB-System/banner.sh
+echo "bash ~/REXE-Termux-RGB-System/banner.sh" >> ~/.bashrc
 
 echo ""
 echo -e "\e[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
