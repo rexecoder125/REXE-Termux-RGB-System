@@ -1,6 +1,48 @@
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⡇       ⣤⣤⣤⣤⣤⣤⣤⣤⣤⣀       ⢸⣿
-⣿⡇       ⠈⠉⠉⠉⠉⠉⠉⠉⠉⠁       ⢸⣿
-⣿⡇           SYSTEM READY           ⢸⣿
-⣿⡇       ⣀⣀⣀⣀⣀⣀⣀⣀⣀       ⢸⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+#!/bin/bash
+
+# Colors
+R="\e[31m"; G="\e[32m"; Y="\e[33m"
+B="\e[34m"; M="\e[35m"; C="\e[36m"; W="\e[37m"
+RB="\e[38;5;196m"
+NC="\e[0m"
+
+# Device Info (Real Data)
+DATE=$(date +"%d-%m-%Y")
+TIME=$(date +"%I:%M %p")
+MODEL=$(getprop ro.product.model)
+ANDROID=$(getprop ro.build.version.release)
+
+# RAM & STORAGE (Real Values)
+RAM_TOTAL=$(free -h | awk '/Mem:/ {print $2}')
+RAM_USED=$(free -h | awk '/Mem:/ {print $3}')
+ST_TOTAL=$(df -h /storage/emulated/0 | awk 'NR==2{print $2}')
+ST_USED=$(df -h /storage/emulated/0 | awk 'NR==2{print $3}')
+
+clear
+
+# Eagle Banner
+echo -e "${C}"
+echo -e "        \\\\"
+echo -e "         \\\\  ,__,"
+echo -e "          \\\\ (o,O)   ${Y}CYBER MATRIX RGB PANEL"
+echo -e "            (   )"
+echo -e "            /'-'\\"
+echo -e "${NC}"
+
+# Device Panel
+echo -e "${G}────────────────────────────────────────────${NC}"
+echo -e "${C} Developer:${W} Rexe"
+echo -e "${C} Date     :${W} $DATE"
+echo -e "${C} Time     :${W} $TIME"
+echo -e "${C} Device   :${W} $MODEL"
+echo -e "${C} Android  :${W} $ANDROID"
+echo -e "${C} RAM      :${W} $RAM_USED / $RAM_TOTAL"
+echo -e "${C} Storage  :${W} $ST_USED / $ST_TOTAL"
+echo -e "${G}────────────────────────────────────────────${NC}"
+sleep 1
+
+# RGB Matrix Waves
+for i in {1..10}
+do
+    echo -e "$(printf '\e[38;5;%smCyber Matrix Waves\e[0m' $((RANDOM%255)))"
+done
