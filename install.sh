@@ -26,7 +26,7 @@ echo "bash ~/REXE-Termux-RGB-System/banner.sh" >> ~/.bashrc
 echo ""
 echo -e "\e[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "    Installation Complete!"
-echo -e "   Open Termux again to see"
-echo -e "   your RGB Cyber Matrix Banner"
+echo -e "    Open Termux again to see"
+echo -e "    your RGB Cyber Matrix Banner"
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 sleep 1
