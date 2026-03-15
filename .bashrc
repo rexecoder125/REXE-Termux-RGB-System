@@ -1,1 +1,1 @@
-bash ~/A/banner.sh
+PS1='┌─(\[\e[1;36m\]rexe\[\e[0m\]㉿termux)-[\[\e[1;32m\]\w\[\e[0m\]]\n└─$ '
