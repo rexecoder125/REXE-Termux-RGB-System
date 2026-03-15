@@ -1,32 +1,24 @@
 #!/bin/bash
-# Cyber Matrix RGB Installer
-# Developer: Rexe
 
-clear
-echo -e "\e[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo -e "   Cyber Matrix RGB Installer"
-echo -e "   Developer: Rexe"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-sleep 1
+# Update packages
+pkg update -y && pkg upgrade -y
 
-echo -e "\e[1;92m[✔] Updating packages...\e[0m"
-pkg update -y >/dev/null 2>&1
-pkg upgrade -y >/dev/null 2>&1
+# Create directory
+mkdir -p ~/REXE-Termux-RGB-System
 
-echo -e "\e[1;92m[✔] Installing required tools...\e[0m"
-pkg install git -y >/dev/null 2>&1
-
-echo -e "\e[1;92m[✔] Cloning repository...\e[0m"
-git clone https://github.com/rexecoder125/REXE-Termux-RGB-System.git >/dev/null 2>&1
-
-echo -e "\e[1;92m[✔] Setting up banner...\e[0m"
+# Download banner file
+curl -L https://raw.githubusercontent.com/rexecoder125/REXE-Termux-RGB-System/main/banner.sh -o ~/REXE-Termux-RGB-System/banner.sh
 chmod +x ~/REXE-Termux-RGB-System/banner.sh
-echo "bash ~/REXE-Termux-RGB-System/banner.sh" >> ~/.bashrc
+
+# Create .bashrc
+cat > ~/.bashrc << 'EOF'
+bash ~/REXE-Termux-RGB-System/banner.sh
+PS1='┌─(\[\e[1;36m\]rexe\[\e[0m\]㉿termux)-[\[\e[1;32m\]\w\[\e[0m\]]\n└─$ '
+EOF
+
+# Fix Termux new version (auto-load bashrc)
+echo "source ~/.bashrc" >> ~/.bash_profile
 
 echo ""
-echo -e "\e[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo -e "    Installation Complete!"
-echo -e "    Open Termux again to see"
-echo -e "    your RGB Cyber Matrix Banner"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-sleep 1
+echo "REXE RGB Termux Installed Successfully!"
+echo "Restart Termux now."
